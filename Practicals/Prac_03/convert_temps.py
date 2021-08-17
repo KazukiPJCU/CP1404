@@ -10,15 +10,15 @@ OUTPUT_FILE = "temps_output.txt"
 def main():
     in_file = open("temps_input", "r")
     out_file = open(OUTPUT_FILE, "w")
-    for lines in in_file:
-        celsius = get_celsius(float(lines))
+    for fahrenheit in in_file:
+        celsius = convert_to_celsius(float(fahrenheit))
         print(celsius, file=out_file)
     in_file.close()
     out_file.close()
 
 
-def get_celsius(lines):
-    celsius = 5 / 9 * (lines - 32)
+def convert_to_celsius(fahrenheit):
+    celsius = 5 / 9 * (fahrenheit - 32)
     return celsius
 
 
