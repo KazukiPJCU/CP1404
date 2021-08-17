@@ -5,6 +5,8 @@ CP1404 "convert temperature program"
 """
 
 OUTPUT_FILE = "temps_output.txt"
+
+
 def main():
     in_file = open("temps_input", "r")
     out_file = open(OUTPUT_FILE, "w")
