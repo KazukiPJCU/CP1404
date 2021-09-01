@@ -1,6 +1,7 @@
 """
 CP1404/CP5632 Practical
 Hexadecimal colour lookup
+Kazuki Pickersgill
 """
 
 COLOUR_CODES = {"AliceBlue": "#f0f8ff", "AntiqueWhite": "#faebd7",

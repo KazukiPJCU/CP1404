@@ -1,6 +1,7 @@
 """
 CP1404/CP5632 Practical
 Word occurrences
+Kazuki Pickersgill
 """
 word_to_count = {}
 # example_text = "This is a collection of words of nice words this is a fun thing it is"
