@@ -1,3 +1,9 @@
+"""
+Kazuki Pickersgill
+CP1404
+Prac_07
+"""
+
 from kivy.app import App
 from kivy.lang import Builder
 
