@@ -13,6 +13,3 @@ def main():
     taxi.drive(18)
     print(taxi)
     print(taxi.get_fare())
-
-
-main()
