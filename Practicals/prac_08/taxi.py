@@ -2,7 +2,6 @@
 CP1404/CP5632 Practical
 Kazuki Pickesgill
 prac_08
-Car class
 """
 
 from Practicals.prac_08.car import Car
