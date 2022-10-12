@@ -45,8 +45,11 @@ print(big_numbers)
 # the result should be: 'Harlem, Hendrix, Lovelace'
 name_list = []
 long_names = [name for name in full_names if len(name) > 11]
+"""check that the correct names have been taken out of the list"""
 print(long_names)
 for first_name in long_names:
+    """Split the list into just the last names"""
     name_list.append(first_name.split(" ")[1])
+"""Print as string"""
 print(" ".join(sorted(name_list)))
 
