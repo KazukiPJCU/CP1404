@@ -44,7 +44,7 @@ print(big_numbers)
 # to create a string (not list) of the last names for those full names longer than 11 characters
 # the result should be: 'Harlem, Hendrix, Lovelace'
 name_list = []
-long_names = [name for name in full_names if len(name) > 11]
+long_names = [name_length for name_length in full_names if len(name_length) > 11]
 """check that the correct names have been taken out of the list"""
 print(long_names)
 for first_name in long_names:
