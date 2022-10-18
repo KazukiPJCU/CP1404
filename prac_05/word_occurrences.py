@@ -2,7 +2,7 @@
 CP1404/CP5632 Practical
 Word occurrences
 Estimate: 30
-Actual:
+Actual: 25
 """
 
 word_to_count = {}
