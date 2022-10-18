@@ -11,5 +11,5 @@ HEX_CODES = {"AliceBlue": "#f0f8ff", "AntiqueWhite": "#faebd7",
              "beige": "#f5f5dc", "bisque1": "#ffe4c4"}
 colour_name = input("Enter a colour name: ")
 while colour_name != "":
-    print("{:<3} colour code is {}".format(colour_name, HEX_CODES.get(colour_name)))
+    print("{} colour code is {}".format(colour_name, HEX_CODES.get(colour_name)))
     colour_name = input("Enter a colour name: ")
