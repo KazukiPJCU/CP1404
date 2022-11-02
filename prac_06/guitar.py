@@ -1,4 +1,6 @@
-"""CP1404/CP5632 Practical -  Guitar."""
+"""CP1404/CP5632 Practical -  Guitar.
+40 min:
+"""
 import datetime
 
 date = datetime.datetime.now()

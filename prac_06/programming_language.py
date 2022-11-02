@@ -1,4 +1,5 @@
-"""CP1404/CP5632 Practical - programming language."""
+"""CP1404/CP5632 Practical - programming language.
+    35 min:"""
 
 
 class ProgrammingLanguage:

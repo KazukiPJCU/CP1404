@@ -1,4 +1,6 @@
-"""CP1404/CP5632 Practical -  Guitars."""
+"""CP1404/CP5632 Practical -  Guitars.
+Time 30 min
+"""
 from prac_06.guitar import Guitar
 
 

@@ -1,4 +1,5 @@
-"""CP1404/CP5632 Practical -  language."""
+"""CP1404/CP5632 Practical -  language.
+ 20 min   """
 
 from prac_06.programming_language import ProgrammingLanguage
 

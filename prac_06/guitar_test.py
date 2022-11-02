@@ -1,4 +1,6 @@
-"""CP1404/CP5632 Practical -  Guitar Test."""
+"""CP1404/CP5632 Practical -  Guitar Test.
+20 min:    """
+
 import datetime
 from prac_06.guitar import Guitar
 
@@ -18,7 +20,7 @@ def run_tests():
 
     print(f"{guitar.name} get_age() - Expected {100}. Got {guitar.get_age()}")
     print(f"{other.name} get_age() - Expected {9}. Got {other.get_age()}")
-    print()
+    print("Hello")
     print(f"{guitar.name} is_vintage() - Expected {True}. Got {guitar.is_vintage()}")
     print(f"{other.name} is_vintage() - Expected {False}. Got {other.is_vintage()}")
 
