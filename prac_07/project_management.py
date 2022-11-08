@@ -19,6 +19,7 @@ def main():
             projects = load_projects()
         elif menu_choice == "S":
             print("Save Projects")
+            save_data(projects)
         elif menu_choice == "D":
             print("Display Projects")
             display_projects(projects)
@@ -49,6 +50,13 @@ def load_projects():
     return projects
 
 
+def save_data(projects):
+    out_file = input("Save file name: ")
+    with open(out_file, "w") as out_file:
+        for project in projects:
+            print(f"{project}", file=out_file, end="\n")
+
+
 def display_projects(projects):
     completed_projects = [project for project in projects if project.is_complete()]
     incomplete_projects = [project for project in projects if not project.is_complete()]
@@ -58,6 +66,11 @@ def display_projects(projects):
     print("Completed Projects: ")
     for project in completed_projects:
         print(f"\t{project}")
+
+
+# def filter_projects(projects):
+
+
 
 
 main()
