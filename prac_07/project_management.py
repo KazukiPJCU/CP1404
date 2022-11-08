@@ -17,16 +17,21 @@ def main():
         if menu_choice == "L":
             print("Load Projects")
             projects = load_projects()
+            print(MENU)
         elif menu_choice == "S":
             print("Save Projects")
             save_data(projects)
+            print(MENU)
         elif menu_choice == "D":
             print("Display Projects")
             display_projects(projects)
+            print(MENU)
         elif menu_choice == "F":
             print("Filter projects by date")
         elif menu_choice == "A":
             print("Add new project")
+            add_new_project(projects)
+            print(MENU)
         elif menu_choice == "U":
             print("Update project")
         else:
@@ -70,7 +75,15 @@ def display_projects(projects):
 
 # def filter_projects(projects):
 
-
+def add_new_project(projects):
+    print("Add a new project")
+    name = input("Name: ").title()
+    start_date = input("Date")
+    priority = input("Priority: ")
+    cost_estimate = input("Cost estimate: $ ")
+    percent_complete = input("Percent complete: ")
+    new_project = Project(name, start_date, priority, cost_estimate, percent_complete)
+    projects.append(new_project)
 
 
 main()
