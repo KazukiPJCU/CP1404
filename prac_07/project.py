@@ -1,4 +1,6 @@
 """Project Class file"""
+"""Estimated:   15"""
+"""Actual:      14"""
 
 
 class Project:
