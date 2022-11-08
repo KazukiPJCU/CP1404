@@ -16,11 +16,12 @@ def main():
     while menu_choice != "Q":
         if menu_choice == "L":
             print("Load Projects")
-            load_projects()
+            projects = load_projects()
         elif menu_choice == "S":
             print("Save Projects")
         elif menu_choice == "D":
             print("Display Projects")
+            display_projects(projects)
         elif menu_choice == "F":
             print("Filter projects by date")
         elif menu_choice == "A":
@@ -46,6 +47,17 @@ def load_projects():
             project = Project(parts[0], date, int(parts[2]), float(parts[3]), int(parts[4]))
             projects.append(project)
     return projects
+
+
+def display_projects(projects):
+    completed_projects = [project for project in projects if project.is_complete()]
+    incomplete_projects = [project for project in projects if not project.is_complete()]
+    print("Incomplete Projects: ")
+    for project in incomplete_projects:
+        print(f"\t{project}")
+    print("Completed Projects: ")
+    for project in completed_projects:
+        print(f"\t{project}")
 
 
 main()
