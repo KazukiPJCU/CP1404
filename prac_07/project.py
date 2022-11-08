@@ -12,3 +12,6 @@ class Project:
     def __repr__(self):
         return f"{self.name}, start: {self.start_date}, priority: {self.priority}, estimate: {self.cost_estimate}, " \
                f"completion: {self.completion_percentage} "
+
+    def is_complete(self):
+        return self.completion_percentage == 100
