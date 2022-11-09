@@ -6,13 +6,13 @@ from operator import attrgetter
 from project import Project
 import datetime
 
-
 FILENAME = "projects.txt"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new " \
        "project\n- (U)pdate project\n- (Q)uit "
 
 
 def main():
+    categories = load_categories(FILENAME)
     print(MENU)
     menu_choice = input(">>> ").upper()
     while menu_choice != "Q":
@@ -22,7 +22,7 @@ def main():
             print(MENU)
         elif menu_choice == "S":
             print("Save Projects")
-            save_data(projects)
+            save_data(projects, categories)
             print(MENU)
         elif menu_choice == "D":
             print("Display Projects")
@@ -67,8 +67,14 @@ def save_data(projects, title):
         print("\t".join(title), file=out_file)
         for project in projects:
             print(f"{project.name}\t{project.start_date}"
-                  f"\t{project.priority}\t{project.estimate}\t{project.completion}",
+                  f"\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}",
                   file=out_file, end="\n")
+
+
+def load_categories(filename):
+    with open(filename, "r") as in_file:
+        category = in_file.readline().strip().split("\t")
+    return category
 
 
 def display_projects(projects):
