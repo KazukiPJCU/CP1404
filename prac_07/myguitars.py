@@ -46,7 +46,7 @@ def get_new_guitars(guitars):
 def load_guitars():
     """Load guitars."""
     guitars = []
-    with open(FILENAME) as in_file:
+    with open(FILENAME, "r") as in_file:
         in_file.readline()
         for line in in_file:
             parts = line.strip().split(',')
