@@ -91,11 +91,11 @@ def get_valid_date():
     while not is_valid_input:
         date_string = input("Date (dd/mm/yyyy): ")
         try:
-            date_value = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+            date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
             is_valid_input = True
         except ValueError:
             print("Incorrect date format, type as indicated")
-    return date_value
+    return date
 
 
 main()
