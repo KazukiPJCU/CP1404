@@ -78,12 +78,24 @@ def display_projects(projects):
 def add_new_project(projects):
     print("Add a new project")
     name = input("Name: ").title()
-    start_date = input("Date")
+    start_date = get_valid_date()
     priority = input("Priority: ")
     cost_estimate = input("Cost estimate: $ ")
     percent_complete = input("Percent complete: ")
     new_project = Project(name, start_date, priority, cost_estimate, percent_complete)
     projects.append(new_project)
+
+
+def get_valid_date():
+    is_valid_input = False
+    while not is_valid_input:
+        date_string = input("Date (dd/mm/yyyy): ")
+        try:
+            date_value = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+            is_valid_input = True
+        except ValueError:
+            print("Incorrect date format, type as indicated")
+    return date_value
 
 
 main()
