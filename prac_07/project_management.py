@@ -37,7 +37,7 @@ def main():
         else:
             print("Incorrect menu choice")
         menu_choice = input("Menu Choice: ").upper()
-    print("Thanks for coming")
+    print("Quit program")
 
 
 def load_projects():
