@@ -20,12 +20,14 @@ def save_guitars(guitars):
     """Save guitars to file."""
     with open(FILENAME, "w") as out_file:
         for guitar in guitars:
-            print(f"{guitar.name},{guitar.year},{guitar.cost}", file=out_file)
+            # print(guitar) #error checking
+            print(f"{guitar.name},{guitar.year},{guitar.cost}", file=out_file, end="\n")
+    out_file.close()
 
 
 def display_guitars(guitars):
     """Display guitars."""
-    print("\nGuitars:")
+    print("Guitars:")
     for guitar in guitars:
         print(guitar)
 
@@ -41,18 +43,19 @@ def get_new_guitars(guitars):
         print(new_guitar)
         print("Added to guitars")
         name = input("Name: ")
+    return guitars
 
 
 def load_guitars():
     """Load guitars."""
     guitars = []
     with open(FILENAME, "r") as in_file:
-        in_file.readline()
         for line in in_file:
             parts = line.strip().split(',')
             guitar = Guitar(parts[0], int(parts[1]), float(parts[2]))
             guitars.append(guitar)
             # print(guitar) #Checking guitar are correctly formatted
+    in_file.close()
     return guitars
 
 
