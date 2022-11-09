@@ -1,6 +1,6 @@
 """Project management
 Estimated:   60
-Actual:      """
+Actual:     120 """
 
 from operator import attrgetter
 from project import Project
@@ -89,10 +89,20 @@ def display_projects(projects):
 def filter_projects(projects):
     user_date = get_valid_date()
     for project in projects:
-        project.start_date = project.start_date
+        project.start_date = convert_date_filter(project.start_date)
     sorted_projects = [project for project in projects if project.start_date >= user_date]
     for project in sorted(sorted_projects, key=attrgetter("start_date")):
         print(project)
+    for project in projects:
+        project.start_date = convert_date_string_format(project)
+
+
+def convert_date_filter(date):
+    return datetime.datetime.strptime(date, "%d/%m/%Y").date()
+
+
+def convert_date_string_format(project):
+    return f"{project.start_date.day}/{project.start_date.month}/{project.start_date.year}"
 
 
 def add_new_project(projects):
