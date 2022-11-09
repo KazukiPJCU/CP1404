@@ -1,9 +1,11 @@
-"""Project management"""
-"""Estimated:   60"""
-"""Actual:      """
+"""Project management
+Estimated:   60
+Actual:      """
 
+from operator import attrgetter
 from project import Project
 import datetime
+
 
 FILENAME = "projects.txt"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new " \
@@ -28,6 +30,8 @@ def main():
             print(MENU)
         elif menu_choice == "F":
             print("Filter projects by date")
+            filter_projects(projects)
+            print(MENU)
         elif menu_choice == "A":
             print("Add new project")
             add_new_project(projects)
@@ -78,7 +82,14 @@ def display_projects(projects):
         print(f"\t{project}")
 
 
-# def filter_projects(projects):
+def filter_projects(projects):
+    user_date = get_valid_date()
+    for project in projects:
+        project.start_date = project.start_date
+    sorted_projects = [project for project in projects if project.start_date >= user_date]
+    for project in sorted(sorted_projects, key=attrgetter("start_date")):
+        print(project)
+
 
 def add_new_project(projects):
     print("Add a new project")
