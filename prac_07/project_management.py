@@ -60,6 +60,7 @@ def load_projects():
 
 
 def save_data(projects, title):
+    """Save projects to file typed in"""
     out_file = input("Save file name: ")
     with open(out_file, "w") as out_file:
         print("\t".join(title), file=out_file)
@@ -70,12 +71,14 @@ def save_data(projects, title):
 
 
 def load_categories(filename):
+    """Gets the categories for projects txt file"""
     with open(filename, "r") as in_file:
         category = in_file.readline().strip().split("\t")
     return category
 
 
 def display_projects(projects):
+    """Displays projects"""
     completed_projects = [project for project in projects if project.is_complete()]
     incomplete_projects = [project for project in projects if not project.is_complete()]
     print("Incomplete Projects: ")
@@ -87,6 +90,7 @@ def display_projects(projects):
 
 
 def filter_projects(projects):
+    """Filter projects"""
     user_date = get_valid_date()
     for project in projects:
         project.start_date = convert_date_filter(project.start_date)
@@ -98,14 +102,17 @@ def filter_projects(projects):
 
 
 def convert_date_filter(date):
+    """Converts date to usable form for filtering"""
     return datetime.datetime.strptime(date, "%d/%m/%Y").date()
 
 
 def convert_date_string_format(project):
+    """Converts date back to string formatting"""
     return f"{project.start_date.day}/{project.start_date.month}/{project.start_date.year}"
 
 
 def add_new_project(projects):
+    """Adds a new project"""
     print("Add a new project")
     name = input("Name: ").title()
     start_date = get_valid_date()
@@ -117,6 +124,7 @@ def add_new_project(projects):
 
 
 def get_valid_date():
+    """Checks date is correct"""
     is_valid = False
     while not is_valid:
         date_string = input("Date (dd/mm/yyyy): ")
@@ -129,6 +137,7 @@ def get_valid_date():
 
 
 def update_project(projects):
+    """Lets user update project"""
     for i, project in enumerate(projects):
         print(f"{i + 1} {project}")
     project_choice = int(input("Project choice: ")) - 1
