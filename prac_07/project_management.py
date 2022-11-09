@@ -54,11 +54,9 @@ def load_projects():
         in_file.readline()
         for line in in_file:
             parts = line.strip().split("\t")
-            date_string = parts[1]
-            date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
-            project = Project(parts[0], date, int(parts[2]), float(parts[3]), int(parts[4]))
+            project = Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4]))
             projects.append(project)
-    return projects
+        return projects
 
 
 def save_data(projects, title):
@@ -109,12 +107,12 @@ def add_new_project(projects):
 
 
 def get_valid_date():
-    is_valid_input = False
-    while not is_valid_input:
+    is_valid = False
+    while not is_valid:
         date_string = input("Date (dd/mm/yyyy): ")
         try:
             date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
-            is_valid_input = True
+            is_valid = True
         except ValueError:
             print("Incorrect date format, type as indicated")
     return date
