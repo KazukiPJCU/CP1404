@@ -34,6 +34,8 @@ def main():
             print(MENU)
         elif menu_choice == "U":
             print("Update project")
+            update_project(projects)
+            print(MENU)
         else:
             print("Incorrect menu choice")
         menu_choice = input("Menu Choice: ").upper()
@@ -55,11 +57,14 @@ def load_projects():
     return projects
 
 
-def save_data(projects):
+def save_data(projects, title):
     out_file = input("Save file name: ")
     with open(out_file, "w") as out_file:
+        print("\t".join(title), file=out_file)
         for project in projects:
-            print(f"{project}", file=out_file, end="\n")
+            print(f"{project.name}\t{project.start_date}"
+                  f"\t{project.priority}\t{project.estimate}\t{project.completion}",
+                  file=out_file, end="\n")
 
 
 def display_projects(projects):
@@ -96,6 +101,18 @@ def get_valid_date():
         except ValueError:
             print("Incorrect date format, type as indicated")
     return date
+
+
+def update_project(projects):
+    for i, project in enumerate(projects):
+        print(f"{i + 1} {project}")
+    project_choice = int(input("Project choice: ")) - 1
+    print(f"{projects[project_choice]}")
+    new_percentage = input("New percentage: ")
+    projects[project_choice].completion_percentage = new_percentage
+    new_priority = input("New priority: ")
+    projects[project_choice].priority = new_priority
+    return projects
 
 
 main()
