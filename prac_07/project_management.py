@@ -83,10 +83,10 @@ def display_projects(projects):
     incomplete_projects = [project for project in projects if not project.is_complete()]
     print("Incomplete Projects: ")
     for project in incomplete_projects:
-        print(f"\t{project}")
+        print(f"{project}")
     print("Completed Projects: ")
     for project in completed_projects:
-        print(f"\t{project}")
+        print(f"{project}")
 
 
 def filter_projects(projects):
