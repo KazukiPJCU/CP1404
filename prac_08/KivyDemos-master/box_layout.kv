@@ -3,11 +3,13 @@ BoxLayout:
 #    orientation: 'horizontal'
     Button:
         text: 'Clear'
+        on_press: app.clear()
+    TextInput:
+        id: input_name
+        text: ''
     Button:
-        text: 'Greet'
+        text: 'Enter'
         on_press: app.handle_greet_pressed()
-    Button:
-        text: 'three'
     Label:
         id: output_label
         text: 'Enter your name'
