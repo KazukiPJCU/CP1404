@@ -5,8 +5,10 @@ BoxLayout:
         text: 'Clear'
     Button:
         text: 'Greet'
+        on_press: app.handle_greet_pressed()
     Button:
         text: 'three'
     Label:
+        id: output_label
         text: 'Enter your name'
         color: (1, 1, 0, 1)
