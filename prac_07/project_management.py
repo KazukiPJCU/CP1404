@@ -59,11 +59,11 @@ def load_projects():
         return projects
 
 
-def save_data(projects, title):
+def save_data(projects, categories):
     """Save projects to file typed in"""
     out_file = input("Save file name: ")
     with open(out_file, "w") as out_file:
-        print("\t".join(title), file=out_file)
+        print("\t".join(categories), file=out_file)
         for project in projects:
             print(f"{project.name}\t{project.start_date}"
                   f"\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}",
