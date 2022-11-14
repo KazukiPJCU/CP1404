@@ -127,7 +127,7 @@ def get_valid_priority():
     while True:
         try:
             priority = int(input("Enter priority: "))
-            while priority < 0 or priority > 100:
+            while priority < 0 or priority > 10:
                 print("Priority must be between 1 - 10")
                 priority = int(input("Enter priority: "))
         except ValueError:
