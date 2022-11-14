@@ -116,11 +116,19 @@ def add_new_project(projects):
     print("Add a new project")
     name = input("Name: ").title()
     start_date = get_valid_date()
-    priority = input("Priority: ")
+    priority = get_valid_priority()
     cost_estimate = input("Cost estimate: $ ")
     percent_complete = input("Percent complete: ")
     new_project = Project(name, start_date, priority, cost_estimate, percent_complete)
     projects.append(new_project)
+
+
+def get_valid_priority():
+    priority = int(input("Priority: "))
+    while priority < 1 or priority > 10:
+        print("Priority must be between 1 - 10")
+        priority = int(input("Priority: "))
+    return priority
 
 
 def get_valid_date():
