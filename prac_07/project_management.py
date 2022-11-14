@@ -117,26 +117,46 @@ def add_new_project(projects):
     name = input("Name: ").title()
     start_date = get_valid_date()
     priority = get_valid_priority()
-    cost_estimate = input("Cost estimate: $ ")
+    cost_estimate = get_valid_cost_estimate()
     percent_complete = get_valid_percent()
     new_project = Project(name, start_date, priority, cost_estimate, percent_complete)
     projects.append(new_project)
 
 
 def get_valid_priority():
-    priority = int(input("Priority: "))
-    while priority < 1 or priority > 10:
-        print("Priority must be between 1 - 10")
-        priority = int(input("Priority: "))
-    return priority
+    while True:
+        try:
+            priority = int(input("Enter priority: "))
+            while priority < 0 or priority > 100:
+                print("Priority must be between 1 - 10")
+                priority = int(input("Enter priority: "))
+        except ValueError:
+            print('Error: Please enter number only')
+            continue
+        return priority
+
+
+def get_valid_cost_estimate():
+    while True:
+        try:
+            cost = int(input("Cost estimate: $ "))
+        except ValueError:
+            print('Error: Please enter number only')
+            continue
+        return cost
 
 
 def get_valid_percent():
-    percent = int(input("Percent Complete: "))
-    while percent < 0 or percent > 100:
-        print("Percent completed must be between 0% - 100%")
-        percent = int(input("Percent Complete: "))
-    return percent
+    while True:
+        try:
+            percent = int(input("Enter Percentage Complete: "))
+            while percent < 0 or percent > 100:
+                print("Percent completed must be between 0% - 100%")
+                percent = int(input("Enter Percentage Complete: "))
+        except ValueError:
+            print('Error: Please enter number only')
+            continue
+        return percent
 
 
 def get_valid_date():
