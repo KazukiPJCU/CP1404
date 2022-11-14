@@ -96,7 +96,9 @@ def filter_projects(projects):
         project.start_date = convert_date_filter(project.start_date)
     sorted_projects = [project for project in projects if project.start_date >= user_date]
     for project in sorted(sorted_projects, key=attrgetter("start_date")):
-        print(project)
+        print(f"{project.name}, start: {project.start_date.day}/{project.start_date.month}/{project.start_date.year}, "
+              f"prioirty: {project.priority}, estimate: {project.cost_estimate}, comple"
+              f"tion: {project.completion_percentage}")
     for project in projects:
         project.start_date = convert_date_string_format(project)
 
