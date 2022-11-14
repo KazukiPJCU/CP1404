@@ -118,7 +118,7 @@ def add_new_project(projects):
     start_date = get_valid_date()
     priority = get_valid_priority()
     cost_estimate = input("Cost estimate: $ ")
-    percent_complete = input("Percent complete: ")
+    percent_complete = get_valid_percent()
     new_project = Project(name, start_date, priority, cost_estimate, percent_complete)
     projects.append(new_project)
 
@@ -129,6 +129,14 @@ def get_valid_priority():
         print("Priority must be between 1 - 10")
         priority = int(input("Priority: "))
     return priority
+
+
+def get_valid_percent():
+    percent = int(input("Percent Complete: "))
+    while percent < 0 or percent > 100:
+        print("Percent completed must be between 0% - 100%")
+        percent = int(input("Percent Complete: "))
+    return percent
 
 
 def get_valid_date():
