@@ -161,15 +161,14 @@ def get_valid_percent():
 
 def get_valid_date():
     """Checks date is correct"""
-    is_valid = False
-    while not is_valid:
-        date_string = input("Date (dd/mm/yyyy): ")
+    while True:
         try:
+            date_string = input("Date (dd/mm/yyyy): ")
             date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
-            is_valid = True
         except ValueError:
             print("Incorrect date format, type as indicated")
-    return date
+            continue
+        return date
 
 
 def update_project(projects):
