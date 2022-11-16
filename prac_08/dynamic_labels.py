@@ -1,15 +1,13 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.label import Label
-from kivy.properties import StringProperty
 
 
 class DynamicLabelsApp(App):
-    status_text = StringProperty()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.names = ["Lindsay", "Bob", "Norm","Greg", "Spiderman", ]
+        self.names = ["Lindsay", "Bob", "Norm", "Greg", "Spiderman", ]
 
     def build(self):
         self.title = "Dynamic Labels"
