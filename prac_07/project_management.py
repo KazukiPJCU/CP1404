@@ -59,11 +59,11 @@ def load_projects():
         return projects
 
 
-def save_data(projects, title):
+def save_data(projects, categories):
     """Save projects to file typed in"""
     out_file = input("Save file name: ")
     with open(out_file, "w") as out_file:
-        print("\t".join(title), file=out_file)
+        print("\t".join(categories), file=out_file)
         for project in projects:
             print(f"{project.name}\t{project.start_date}"
                   f"\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}",
@@ -96,7 +96,9 @@ def filter_projects(projects):
         project.start_date = convert_date_filter(project.start_date)
     sorted_projects = [project for project in projects if project.start_date >= user_date]
     for project in sorted(sorted_projects, key=attrgetter("start_date")):
-        print(project)
+        print(f"{project.name}, start: {project.start_date.day}/{project.start_date.month}/{project.start_date.year}, "
+              f"prioirty: {project.priority}, estimate: {project.cost_estimate}, comple"
+              f"tion: {project.completion_percentage}")
     for project in projects:
         project.start_date = convert_date_string_format(project)
 
@@ -116,24 +118,59 @@ def add_new_project(projects):
     print("Add a new project")
     name = input("Name: ").title()
     start_date = get_valid_date()
-    priority = input("Priority: ")
-    cost_estimate = input("Cost estimate: $ ")
-    percent_complete = input("Percent complete: ")
+    priority = get_valid_priority()
+    cost_estimate = get_valid_cost_estimate()
+    percent_complete = get_valid_percent()
     new_project = Project(name, start_date, priority, cost_estimate, percent_complete)
     projects.append(new_project)
 
 
+def get_valid_priority():
+    while True:
+        try:
+            priority = int(input("Enter priority: "))
+            while priority < 0 or priority > 10:
+                print("Priority must be between 1 - 10")
+                priority = int(input("Enter priority: "))
+        except ValueError:
+            print('Error: Please enter number only')
+            continue
+        return priority
+
+
+def get_valid_cost_estimate():
+    while True:
+        try:
+            cost = int(input("Cost estimate: $ "))
+        except ValueError:
+            print('Error: Please enter number only')
+            continue
+        return cost
+
+
+def get_valid_percent():
+    while True:
+        try:
+            percent = int(input("Enter Percentage Complete: "))
+            while percent < 0 or percent > 100:
+                print("Percent completed must be between 0% - 100%")
+                percent = int(input("Enter Percentage Complete: "))
+        except ValueError:
+            print('Error: Please enter number only')
+            continue
+        return percent
+
+
 def get_valid_date():
     """Checks date is correct"""
-    is_valid = False
-    while not is_valid:
-        date_string = input("Date (dd/mm/yyyy): ")
+    while True:
         try:
+            date_string = input("Date (dd/mm/yyyy): ")
             date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
-            is_valid = True
         except ValueError:
             print("Incorrect date format, type as indicated")
-    return date
+            continue
+        return date
 
 
 def update_project(projects):
