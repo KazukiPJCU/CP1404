@@ -14,3 +14,5 @@ class Band:
         """Add musician to band"""
         self.musicians.append(musician)
 
+    def play(self):
+        return '\n'.join([musician.play() for musician in self.musicians])
