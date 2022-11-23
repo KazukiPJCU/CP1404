@@ -176,6 +176,7 @@ def get_valid_date():
 def update_project(projects):
     """Lets user update project"""
     for i, project in enumerate(projects):
+
         print(f"{i + 1} {project}")
     project_choice = int(input("Project choice: ")) - 1
     print(f"{projects[project_choice]}")
@@ -183,6 +184,7 @@ def update_project(projects):
     projects[project_choice].completion_percentage = new_percentage
     new_priority = input("New priority: ")
     projects[project_choice].priority = new_priority
+    print(type(projects))
     return projects
 
 
